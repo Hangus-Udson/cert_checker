@@ -1,0 +1,38 @@
+• Certificate Validation in C using OpenSSL
+• Focus is on understanding how certificates are validated, and why
+it is a challenge
+• Task is to write a program to read certificates from files and
+validate them against a specified URL
+-Valid From
+–Valid To
+–Basic Constraints (Not a CA)
+–Enhanced Key Usage (TLS Server Authentication)
+–Common Name
+–Subject Alternative Name extension
+• You will not be required to check the signatures or the full chain
+  just the contents of the individual certificates
+
+• Your program will be given a CSV file containing a number or lines, each with two values
+  –CertificateFile,URL
+  –testone.cer,www.example.com
+• Your task is to read each certificate, and validate it against
+  the fields on the previous slide
+• Your program must output a CSV file, with one line per
+  certificate tested
+  –CertificateFile,URL,ValidInvalid
+  –testone.cer,www.example.com,1
+
+• You must write your own certificate validation code
+• You cannot use the built in validation service or validation
+  functions. In particular you may not use the following
+  functions:
+X509_check_ca
+X509_check_host
+X509_cmp_current_time
+X509_cmp_time
+• A skeleton source file will be provided that demonstrates
+how to read a certificate from a file, and how to access
+some fields
+• You will need to find how to access the fields you need for validation
+• Wildcards may be present in the Common Name or Subject Alternative Name fields,
+  these should be supported by your program
